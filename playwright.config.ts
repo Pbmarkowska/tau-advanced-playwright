@@ -4,6 +4,7 @@ import baseEnvUrl from './tests/utils/environmentBaseUrl';
 require('dotenv').config();
 
 export default defineConfig({
+  // nie to
   globalSetup: require.resolve('./tests/setup/global-setup'),
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
@@ -12,7 +13,8 @@ export default defineConfig({
   reporter: 'html',
   // timeout: 5000,
   use: {
-    storageState: 'storageState.json',
+    // to będzie dokładnie ta linijka 
+    // storageState: 'storageState.json',
     trace: 'on',
     baseURL: process.env.ENV === 'production' 
       ? baseEnvUrl.production.home
@@ -37,7 +39,8 @@ export default defineConfig({
       name: 'chromium-auth',
       use: { 
         ...devices['Desktop Chrome'] ,
-        // storageState: '.auth/admin.json', //use this in case you have multiple projects one per user
+        storageState: '.auth/admin.json',
+        // use this in case you have multiple projects one per user
       },
       dependencies: ['auth-setup'],
     },

@@ -27,6 +27,6 @@ async function doLogin(page: Page, user:string, password: string) {
   
     await page.goto(baseURL!+uiPages.login);
     await loginPage.doLogin(user, password);
-    await page.waitForURL(baseURL+uiPages.login);
+    await page.waitForURL(baseURL + uiPages.profile);
     await loginPage.checkLoggedIn();
 }
